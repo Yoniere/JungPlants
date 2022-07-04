@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/JungPlants/static/css/main.6a1f2d9e.css",
+    "main.js": "/JungPlants/static/js/main.f2aa67b2.js",
+    "static/js/787.8ae4576e.chunk.js": "/JungPlants/static/js/787.8ae4576e.chunk.js",
+    "index.html": "/JungPlants/index.html",
+    "main.6a1f2d9e.css.map": "/JungPlants/static/css/main.6a1f2d9e.css.map",
+    "main.f2aa67b2.js.map": "/JungPlants/static/js/main.f2aa67b2.js.map",
+    "787.8ae4576e.chunk.js.map": "/JungPlants/static/js/787.8ae4576e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a1f2d9e.css",
+    "static/js/main.f2aa67b2.js"
+  ]
+}
