@@ -16,7 +16,7 @@ export class PlantApp extends Component {
   }
 
   async loadPlants() {
-    const plants = await plantService.query();
+    const plants = await plantService.query(this.state.filterBy);
     this.setState({ plants });
   }
 
@@ -26,6 +26,11 @@ export class PlantApp extends Component {
   onRemovePlant= async (plantId)=> {
     await plantService.remove(plantId);
     this.loadPlants();
+  }
+
+  onChangeFilter = (filterBy)=> {
+    console.log('filterBy:',filterBy)
+    this.setState({filterBy}, this.loadPlants)
   }
 
   render() {
@@ -40,7 +45,7 @@ export class PlantApp extends Component {
           ></PlantDetails>
         ) : (
         <>
-        <PlantFilter></PlantFilter>
+        <PlantFilter onChangeFilter={this.onChangeFilter}></PlantFilter>
           <PlantList
             onSelectPlant={this.onSelectPlant}
             onRemovePlant={this.onRemovePlant}

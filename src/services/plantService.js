@@ -13,24 +13,25 @@ export const plantService = {
 const STORAGE_KEY = 'plants'
 
 const gDefaultPlants = [
-    { _id: 'r1', name: 'Alocasia Pink Dragon', price: 20, type: 'Indoor',family:'Aracea',img:'' },
-    { _id: 'r2', name: 'Philodendron Paraiso Verde', price: 100, type: 'Indoor',family:'Aracea',img:'' },
-    { _id: 'r3', name: 'Monstera Delciosa Variegata', price: 150, type: 'Indoor',family:'Aracea',img:'' },
-    { _id: 'r4', name: 'Calatea White Fuzen', price: 35, type: 'Indoor',family:'Marantaceae',img:'' },
+    { _id: 'r1', name: 'Alocasia Pink Dragon', price: 20, type: 'Indoor', family: 'Aracea', img: '' },
+    { _id: 'r2', name: 'Philodendron Paraiso Verde', price: 100, type: 'Indoor', family: 'Aracea', img: '' },
+    { _id: 'r3', name: 'Monstera Delciosa Variegata', price: 150, type: 'Indoor', family: 'Aracea', img: '' },
+    { _id: 'r4', name: 'Calatea White Fuzen', price: 35, type: 'Indoor', family: 'Marantaceae', img: '' },
 ]
 
 var gPlants = _loadPlants()
 
 function query(filterBy) {
     let plantsToReturn = gPlants;
-    // if (filterBy) {
-    //     var { type, maxBatteryStatus, minBatteryStatus, model } = filterBy
-    //     maxBatteryStatus = maxBatteryStatus || Infinity
-    //     minBatteryStatus = minBatteryStatus || 0
-    //     robotsToReturn = gRobots.filter(robot => robot.type.toLowerCase().includes(type.toLowerCase()) && robot.model.toLowerCase().includes(model.toLowerCase())
-    //         && (robot.batteryStatus < maxBatteryStatus)
-    //         && robot.batteryStatus > minBatteryStatus)
-    // }
+    if (filterBy) {
+        var { name, price, type, family } = filterBy
+        price = price || 0
+        plantsToReturn = gPlants.filter(plant => plant.type.toLowerCase().includes(type.toLowerCase()) && plant.name.toLowerCase().includes(name.toLowerCase())
+            && plant.family.toLowerCase().includes(family.toLowerCase())
+            && (plant.price < price)
+        )
+    }
+    console.log(plantsToReturn)
     return Promise.resolve([...plantsToReturn]);
 }
 // function tryRobot(id) {
