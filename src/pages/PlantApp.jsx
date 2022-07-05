@@ -2,6 +2,7 @@ import { Component } from "react";
 import { plantService } from "../services/plantService";
 import { PlantList } from "../cmps/PlantList";
 import { PlantDetails } from "./PlantDetails";
+import { PlantFilter } from "./PlantFilter";
 
 export class PlantApp extends Component {
   state = {
@@ -22,17 +23,30 @@ export class PlantApp extends Component {
   onSelectPlant = (plantId) => {
     this.setState({ selectedPlantId: plantId });
   };
+  onRemovePlant= async (plantId)=> {
+    await plantService.remove(plantId);
+    this.loadPlants();
+  }
 
   render() {
     const { plants, selectedPlantId } = this.state;
     if (!plants) return <div className="container">Loading...</div>;
     return (
       <section className="plant-app container">
-        filter
-        {!selectedPlantId ? (
-          <PlantList onSelectPlant={this.selectedPlantId} plants={plants}></PlantList>
+        {selectedPlantId ? (
+          <PlantDetails
+            plantId={selectedPlantId}
+            onBack={() => this.onSelectPlant(null)}
+          ></PlantDetails>
         ) : (
-          <PlantDetails></PlantDetails>
+        <>
+        <PlantFilter></PlantFilter>
+          <PlantList
+            onSelectPlant={this.onSelectPlant}
+            onRemovePlant={this.onRemovePlant}
+            plants={plants}
+          ></PlantList>
+          </>
         )}
       </section>
     );

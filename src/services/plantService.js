@@ -4,8 +4,8 @@ import { makeId } from './utilService.js'
 export const plantService = {
     query,
     // save,
-    // remove,
-    // getById,
+    remove,
+    getById,
     // getEmptyRobot,
     // tryRobot
 }
@@ -38,18 +38,18 @@ function query(filterBy) {
 //     robot.batteryStatus -= 10
 //     return Promise.resolve()
 // }
-// function getById(id) {
-//     const robot = gRobots.find(robot => robot._id === id)
-//     return Promise.resolve({ ...robot })
-// }
+function getById(id) {
+    const plant = gPlants.find(plant => plant._id === id)
+    return Promise.resolve({ ...plant })
+}
 
-// function remove(id) {
-//     const idx = gRobots.findIndex(robot => robot._id === id)
-//     gRobots.splice(idx, 1)
-//     if (!gRobots.length) gRobots = gDefaultRobots.slice()
-//     storageService.store(STORAGE_KEY, gRobots)
-//     return Promise.resolve()
-// }
+function remove(id) {
+    const idx = gPlants.findIndex(plant => plant._id === id)
+    gPlants.splice(idx, 1)
+    if (!gPlants.length) gPlants = gDefaultPlants.slice()
+    storageService.store(STORAGE_KEY, gPlants)
+    return Promise.resolve()
+}
 
 // function save(robotToSave) {
 //     if (robotToSave._id) {
