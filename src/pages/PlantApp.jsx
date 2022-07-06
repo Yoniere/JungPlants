@@ -41,6 +41,7 @@ export class PlantApp extends Component {
           onRemovePlant={this.onRemovePlant}
           plants={plants}
         ></PlantList>
+        
       </section>
     );
   }
