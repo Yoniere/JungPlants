@@ -31,7 +31,7 @@ function query(filterBy) {
             && (plant.price < price)
         )
     }
-    console.log(plantsToReturn)
+    // console.log(plantsToReturn)
     return Promise.resolve([...plantsToReturn]);
 }
 // function tryRobot(id) {

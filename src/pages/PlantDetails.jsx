@@ -7,19 +7,31 @@ export class PlantDetails extends Component {
   };
 
   async componentDidMount() {
-    const plant = await plantService.getById(this.props.plantId);
+
+    const plant = await plantService.getById(this.props.match.params.id);
     this.setState({ plant });
   }
+
+  // async loadPlants() {
+  //   console.log(this.props)
+  //   const plant = await plantService.getById(this.props);
+  //   this.setState({ plant });
+  // }
+
+  onBack=()=> {
+    this.props.history.push('/plant')
+  }
   render() {
-    const {plant} = this.state
-    if (!plant) return <div>Loading...</div>
-    return ( <section className="app-filter">
+    const { plant } = this.state;
+    if (!plant) return <div>Loading...</div>;
+    return (
+      <section className="app-filter">
         <h2>{plant.name}</h2>
         <h4>{plant.price}</h4>
         <h4>{plant.family}</h4>
         <h4>{plant.type}</h4>
-        <button onClick={this.props.onBack}>back</button>
-    </section>
+        <button onClick={this.onBack}>back</button>
+      </section>
     );
   }
 }
