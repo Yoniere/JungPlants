@@ -6,30 +6,34 @@ export class PlantEdit extends Component {
     plant: null,
   };
 
-   async componentDidMount() {
-    console.log(this.props)
-    const id = this.props.match.params._id
-    const plant = (id)? await plantService.getById(id) : plantService.getEmptyPlant()
-    this.setState({ plant });
+  async componentDidMount() {
+    console.log(this.props);
+    const id = this.props.match.params.id;
+    const plant = id
+      ? await plantService.getById(id)
+      : plantService.getEmptyPlant();
+    this.setState({ plant }, () => {
+      console.log(this.state.plant);
+    });
   }
 
   handleChange = async ({ target }) => {
     const field = target.name;
     const value = target.type === "number" ? +target.value || "" : target.value;
     this.setState((prevState) => ({
-      robot: { ...prevState.plant, [field]: value },
+      plant: { ...prevState.plant, [field]: value },
     }));
   };
 
-  onSavePlant= async(ev) => {
-    ev.preventDefault()
-    await plantService.save({...this.state.robot})
-    this.props.history.push('/plant')
-  }
+  onSavePlant = async (ev) => {
+    ev.preventDefault();
+    await plantService.save({ ...this.state.plant });
+    this.props.history.push("/plant");
+  };
 
   render() {
-    const {plant} = this.state
-    if (!plant) return <div>Loading...</div>
+    const { plant } = this.state;
+    if (!plant) return <div>Loading...</div>;
     return (
       <section className="container">
         <h2>Add Plant</h2>
@@ -52,9 +56,28 @@ export class PlantEdit extends Component {
             value={plant.price}
           />
 
+          <label htmlFor="family"></label>
+          <select
+            onChange={this.handleChange}
+            name="family"
+            id="family"
+            value={plant.family}
+          >
+            <option value="" disabled>
+              Choose A Family
+            </option>
+            <option value="Aracea">Aracea</option>
+            <option value="Marantaceae">Marantaceae</option>
+          </select>
+
           <label htmlFor="type"></label>
-          <select onChange={this.handleChange} name="type" id="type" value={plant.type}>
-            <option value="Choose Type" disabled>
+          <select
+            onChange={this.handleChange}
+            name="type"
+            id="type"
+            value={plant.type}
+          >
+            <option value="" disabled>
               Choose A Type
             </option>
             <option value="Indoor">Indoor</option>

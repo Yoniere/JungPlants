@@ -9,7 +9,7 @@ export class PlantFilter extends Component {
   };
 
   handleChange = ({ target }) => {
-    console.log(target)
+    // console.log(target)
     const field = target.name;
     const value = target.type === "number" ? +target.value : target.value;
     this.setState({ [field]: value }, () => {
