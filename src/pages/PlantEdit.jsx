@@ -36,7 +36,7 @@ export class PlantEdit extends Component {
     if (!plant) return <div>Loading...</div>;
     return (
       <section className="container">
-        <h2>Add Plant</h2>
+        <h2>{(plant._id)? 'Edit' : 'Add'} Plant</h2>
         <form onSubmit={this.onSavePlant}>
           <label htmlFor="name">Name</label>
           <input
