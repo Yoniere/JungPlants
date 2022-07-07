@@ -8,6 +8,7 @@ export function PlantPreview({ plant,onRemovePlant }) {
       <h4>{plant.price}</h4>
     </section>
       <button onClick={()=>onRemovePlant(plant._id)}>Remove</button>
+
       </Link>
   );
 }

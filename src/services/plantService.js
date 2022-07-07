@@ -3,10 +3,10 @@ import { makeId } from './utilService.js'
 
 export const plantService = {
     query,
-    // save,
+    save,
     remove,
     getById,
-    // getEmptyRobot,
+    getEmptyPlant,
     // tryRobot
 }
 
@@ -52,27 +52,28 @@ function remove(id) {
     return Promise.resolve()
 }
 
-// function save(robotToSave) {
-//     if (robotToSave._id) {
-//         const idx = gRobots.findIndex(robot => robot._id === robotToSave._id)
-//         gRobots.splice(idx, 1, robotToSave)
-//     } else {
-//         robotToSave._id = makeId()
-//         robotToSave.batteryStatus = 100
-//         gRobots.push(robotToSave)
-//     }
-//     storageService.store(STORAGE_KEY, gRobots)
-//     return Promise.resolve(robotToSave);
-// }
+function save(plantToSave) {
+    if (plantToSave._id) {
+        const idx = gPlants.findIndex(plant => plant._id === plantToSave._id)
+        gPlants.splice(idx, 1, plantToSave)
+    } else {
+        plantToSave._id = makeId()
+        gPlants.push(plantToSave)
+    }
+    storageService.store(STORAGE_KEY, gPlants)
+    return Promise.resolve(plantToSave);
+}
 
 
 
-// function getEmptyRobot() {
-//     return {
-//         model: '',
-//         type: ''
-//     }
-// }
+function getEmptyPlant() {
+    return {
+        name: '',
+        price:'',
+        type: '',
+        family:''
+    }
+}
 
 function _loadPlants() {
     let plants = storageService.load(STORAGE_KEY)

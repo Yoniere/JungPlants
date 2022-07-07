@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import { plantService } from "../services/plantService";
 
 export class PlantDetails extends Component {
@@ -30,6 +31,7 @@ export class PlantDetails extends Component {
         <h4>{plant.price}</h4>
         <h4>{plant.family}</h4>
         <h4>{plant.type}</h4>
+        <Link to={`/plant/edit/${plant._id}`}>Edit</Link>
         <button onClick={this.onBack}>back</button>
       </section>
     );
