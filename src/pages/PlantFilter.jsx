@@ -20,7 +20,7 @@ export class PlantFilter extends Component {
   render() {
     const { name, price, type, family } = this.state;
     return (
-      <section className="app-filter">
+      <section className="app-filter flex">
         <section>
           <label htmlFor="name">Name</label>
           <input onChange={this.handleChange} type="text" id="name" name="name" value={name} />
