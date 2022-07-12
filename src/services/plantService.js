@@ -24,7 +24,7 @@ var gPlants = _loadPlants()
 function query(filterBy) {
     let plantsToReturn = gPlants;
     if (filterBy) {
-        var { name, price, type, family } = filterBy
+        let { name, price, type, family } = filterBy
         price = price || 0
         plantsToReturn = gPlants.filter(plant => plant.type.toLowerCase().includes(type.toLowerCase()) && plant.name.toLowerCase().includes(name.toLowerCase())
             && plant.family.toLowerCase().includes(family.toLowerCase())
