@@ -4,7 +4,8 @@ import { plantService } from "../../services/plantService"
 export function loadPlants() {
     return async (dispatch,getState) => {
         try {
-            const {filterBy} = getState().plantModule
+            const { filterBy } = getState().plantModule
+            // console.log (filterBy)
             const plants = await plantService.query(filterBy)
             dispatch({type: 'SET_PLANTS', plants})
         } catch (err) {
@@ -27,5 +28,6 @@ export function removePlant(plantId) {
 export function setFilterBy(filterBy) {
     return async (dispatch) => {
         dispatch({ type: 'SET_FILTER_BY', filterBy })
+        // console.log(dispatch,filterBy)
     }
 }

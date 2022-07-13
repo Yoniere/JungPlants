@@ -31,7 +31,12 @@ export class PlantFilter extends Component {
         </section>
         <section>
           <label htmlFor="type">Type</label>
-          <input onChange={this.handleChange} type="text" id="type" name="type" value={type} />
+          <select name="type" id="type" value={type} onChange={this.handleChange}>
+          <option value="" disabled>Choose a Type</option>
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+          </select>
+          {/* <input onChange={this.handleChange} type="text" id="type" name="type" value={type} /> */}
         </section>
         <section>
           <label htmlFor="family">Family</label>

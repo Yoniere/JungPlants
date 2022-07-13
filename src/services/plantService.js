@@ -25,10 +25,12 @@ function query(filterBy) {
     let plantsToReturn = gPlants;
     if (filterBy) {
         let { name, price, type, family } = filterBy
-        price = price || 0
-        plantsToReturn = gPlants.filter(plant => plant.type.toLowerCase().includes(type.toLowerCase()) && plant.name.toLowerCase().includes(name.toLowerCase())
-            && plant.family.toLowerCase().includes(family.toLowerCase())
-            && (plant.price < price)
+        console.log(filterBy)
+        price = price || 250
+        plantsToReturn = gPlants.filter(plant =>  {return plant.type === type && plant.name.toLowerCase().includes(name.toLowerCase())
+            && plant.family.toLowerCase().includes(family.toLowerCase()) && (plant.price < price)}
+            
+           
         )
     }
     // console.log(plantsToReturn)
@@ -69,9 +71,9 @@ function save(plantToSave) {
 function getEmptyPlant() {
     return {
         name: '',
-        price:'',
+        price: '',
         type: '',
-        family:''
+        family: ''
     }
 }
 

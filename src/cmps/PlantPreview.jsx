@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 
-export function PlantPreview({ plant,onRemovePlant }) {
+export function PlantPreview({ plant, onRemovePlant }) {
   return (
-    <Link to={`/plant/${plant._id}`} className="plant-preview">
     <section>
-      <h2>{plant.name}</h2>
-      <h4>{plant.price}</h4>
-    </section>
-      <button onClick={()=>onRemovePlant(plant._id)}>Remove</button>
-
+      <Link to={`/plant/${plant._id}`} className="plant-preview">
+        <h2>{plant.name}</h2>
+        <h4>{plant.price}</h4>
       </Link>
+      <button onClick={() => onRemovePlant(plant._id)}>Remove</button>
+    </section>
   );
 }

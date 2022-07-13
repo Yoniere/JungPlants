@@ -29,6 +29,7 @@ class _PlantApp extends Component {
 
   onRemovePlant = async (plantId) => {
     this.props.removePlant(plantId);
+    this.props.loadPlants();
   };
 
   onChangeFilter = async (filterBy) => {
