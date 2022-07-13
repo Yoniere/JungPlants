@@ -1,6 +1,20 @@
 .app-header {
-    .nav-bar a:not(:last-child) {
-        margin-right: 0.5rem;
+    .nav-bar {
+        & a:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+        & a:hover {
+            text-decoration: none;
+        }
+
     }
     height: 6vh;
+    background-color: darkseagreen;
+    .logo {
+        font-size: 21px;
+        align-items: center;
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }

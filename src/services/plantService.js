@@ -13,10 +13,10 @@ export const plantService = {
 const STORAGE_KEY = 'plants'
 
 const gDefaultPlants = [
-    { _id: 'r1', name: 'Alocasia Pink Dragon', price: 20, type: 'Indoor', family: 'Aracea', img: '' },
-    { _id: 'r2', name: 'Philodendron Paraiso Verde', price: 100, type: 'Indoor', family: 'Aracea', img: '' },
-    { _id: 'r3', name: 'Monstera Delciosa Variegata', price: 150, type: 'Indoor', family: 'Aracea', img: '' },
-    { _id: 'r4', name: 'Calatea White Fuzen', price: 35, type: 'Indoor', family: 'Marantaceae', img: '' },
+    { _id: 'r1', name: 'Alocasia Pink Dragon', price: 20, type: 'Indoor', family: 'Aracea', img: 'https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657702529/JungPlants%20Project/rare_alocasia_pink_dragon_1608281978_15a1d27e_w8wfh6.jpg' },
+    { _id: 'r2', name: 'Philodendron Paraiso Verde', price: 100, type: 'Indoor', family: 'Aracea', img: 'https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657702554/JungPlants%20Project/HT5PpqDYXdmjqWoiq0doOAuslpGyQMbj_mshocj.jpg' },
+    { _id: 'r3', name: 'Monstera Delciosa Variegata', price: 150, type: 'Indoor', family: 'Aracea', img: 'https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657702569/JungPlants%20Project/variegated-monstera-deliciosa-07_p7n891.webp' },
+    { _id: 'r4', name: 'Calatea White Fuzen', price: 35, type: 'Indoor', family: 'Marantaceae', img: 'https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657702600/JungPlants%20Project/Calathea-White-Fusion-1_isiozk.jpg' },
 ]
 
 var gPlants = _loadPlants()
