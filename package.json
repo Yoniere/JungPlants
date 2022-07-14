@@ -1,7 +1,7 @@
 {
   "name": "jungplants",
   "version": "0.1.0",
-  "homepage": "https://Yoniere.github.io/JungPlants",
+  "homepage": "https://yoniere.github.io/JungPlants/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
