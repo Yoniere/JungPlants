@@ -1,5 +1,6 @@
 .app-header {
     .nav-bar {
+        align-items: center;
         & a:not(:last-child) {
             margin-right: 0.5rem;
         }
@@ -8,7 +9,7 @@
         }
 
     }
-    height: 6vh;
+    height: 54px;
     background-color: darkseagreen;
     .logo {
         font-size: 21px;

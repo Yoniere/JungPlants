@@ -2,6 +2,6 @@ import React from 'react'
 
 export function About() {
   return (
-    <section className='container'>about</section>
+    <section className='app-about container'>about</section>
   )
 }

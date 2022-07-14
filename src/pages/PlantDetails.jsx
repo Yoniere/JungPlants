@@ -8,7 +8,6 @@ export class PlantDetails extends Component {
   };
 
   async componentDidMount() {
-
     const plant = await plantService.getById(this.props.match.params.id);
     this.setState({ plant });
   }
@@ -19,20 +18,29 @@ export class PlantDetails extends Component {
   //   this.setState({ plant });
   // }
 
-  onBack=()=> {
-    this.props.history.push('/plant')
-  }
+  onBack = () => {
+    this.props.history.push("/plant");
+  };
   render() {
     const { plant } = this.state;
     if (!plant) return <div>Loading...</div>;
     return (
-      <section className="app-filter">
-        <h2>{plant.name}</h2>
-        <h4>{plant.price}</h4>
-        <h4>{plant.family}</h4>
-        <h4>{plant.type}</h4>
-        <Link to={`/plant/edit/${plant._id}`}>Edit</Link>
-        <button onClick={this.onBack}>back</button>
+      <section className="app-details container flex column">
+        <section className="details-section flex space-between">
+          <div className="left-section flex column">
+            <h2>Name: {plant.name}</h2>
+            <h4>Price: {plant.price}$</h4>
+            <h4>Family: {plant.family}</h4>
+            <h4>Type: {plant.type}</h4>
+          </div>
+          <div className="image-section">
+            <img className="plant-img" src={plant.img} />
+          </div>
+        </section>
+        <section className="action-section flex space-between">
+          <img className="back-img" onClick={this.onBack} src='https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657709534/JungPlants%20Project/icons8-arrow-50_jdfxwy.png'/>
+          <Link className="edit-btn" to={`/plant/edit/${plant._id}`}>Edit</Link>
+        </section>
       </section>
     );
   }

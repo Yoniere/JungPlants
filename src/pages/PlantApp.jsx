@@ -43,7 +43,7 @@ class _PlantApp extends Component {
     return (
       <section className="plant-app container">
         <PlantFilter onChangeFilter={this.onChangeFilter}></PlantFilter>
-        <Link to="/plant/edit">Add Plant</Link>
+        <Link to="/plant/edit"><img src="https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657709535/JungPlants%20Project/icons8-add-48_jb2gec.png" /></Link>
         <PlantList
           history={this.props.history}
           onRemovePlant={this.onRemovePlant}

@@ -1,6 +1,20 @@
 .plant-preview {
-    max-height: 19rem;
-    max-width: 13rem;
+    max-height: 21rem;
+    max-width: 14rem;
     margin: 20px;
-    .below-image {}
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+    .remove-btn {
+        background: none;
+        border: none;
+        width: 30px;
+    }
+    .below-image {
+        align-items: center;
+    }
+    .preview-img {
+        border-radius: 5px;
+    }
 }
