@@ -1,5 +1,6 @@
 import { storageService } from './storageService.js'
 import { makeId } from './utilService.js'
+import { httpService } from './http.service.js'
 
 export const plantService = {
     query,
@@ -11,7 +12,7 @@ export const plantService = {
 }
 
 const STORAGE_KEY = 'plants'
-
+const ENDPOINT = 'plant'
 const gDefaultPlants = [
     { _id: 'r1', name: 'Alocasia Pink Dragon', price: 20, type: 'Indoor', family: 'Aracea', img: 'https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657702529/JungPlants%20Project/rare_alocasia_pink_dragon_1608281978_15a1d27e_w8wfh6.jpg' },
     { _id: 'r2', name: 'Philodendron Paraiso Verde', price: 100, type: 'Indoor', family: 'Aracea', img: 'https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657702554/JungPlants%20Project/HT5PpqDYXdmjqWoiq0doOAuslpGyQMbj_mshocj.jpg' },
@@ -28,14 +29,23 @@ function query(filterBy) {
         console.log(filterBy)
         price = price || 250
         plantsToReturn = gPlants.filter(plant =>  {return plant.type === type && plant.name.toLowerCase().includes(name.toLowerCase())
-            && plant.family.toLowerCase().includes(family.toLowerCase()) && (plant.price < price)}
-            
-           
+            && plant.family.toLowerCase().includes(family.toLowerCase()) && (plant.price < price)} 
         )
     }
-    // console.log(plantsToReturn)
     return Promise.resolve([...plantsToReturn]);
 }
+
+// async function query(filterBy) {
+//     try {
+//         return await httpService.get(ENDPOINT, filterBy)
+//     } catch {
+//         console.error('cannot load plants')
+//     }
+// }
+
+
+
+
 // function tryRobot(id) {
 //     const robot = gRobots.find(robot => robot._id === id)
 //     robot.batteryStatus -= 10
