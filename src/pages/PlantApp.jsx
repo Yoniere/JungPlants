@@ -1,7 +1,7 @@
 import { Component } from "react";
-import { plantService } from "../services/plantService";
+// import { plantService } from "../services/plantService";
 import { PlantList } from "../cmps/PlantList";
-import { PlantDetails } from "./PlantDetails";
+// import { PlantDetails } from "./PlantDetails";
 import { PlantFilter } from "./PlantFilter";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -17,9 +17,9 @@ class _PlantApp extends Component {
   //   filterBy: null,
   // };
 
-  componentDidMount() {
+  async componentDidMount() {
     // this.loadPlants()
-    this.props.loadPlants();
+    this.props.loadPlants()
   }
 
   // async loadPlants() {
@@ -29,6 +29,7 @@ class _PlantApp extends Component {
 
   onRemovePlant = async (plantId) => {
     this.props.removePlant(plantId);
+    console.log(this.props)
     this.props.loadPlants();
   };
 
@@ -38,7 +39,7 @@ class _PlantApp extends Component {
     this.props.loadPlants();
   };
   render() {
-    const { plants } = this.props;
+    const { plants } = this.props
     if (!plants) return <div className="container">Loading...</div>;
     return (
       <section className="plant-app container">
@@ -54,7 +55,7 @@ class _PlantApp extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     plants: state.plantModule.plants,
   };

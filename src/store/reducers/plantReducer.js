@@ -1,9 +1,9 @@
 const INITIAL_STATE = {
-    plants:null,
-    filterBy:null
+    plants: null,
+    filterBy: null
 }
 
-export function plantReducer(state = INITIAL_STATE,action) {
+export function plantReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'SET_PLANTS':
             return {
@@ -13,22 +13,22 @@ export function plantReducer(state = INITIAL_STATE,action) {
         case 'ADD_PLANT':
             return {
                 ...state,
-                plants:[...state.plants,action.plant]
+                plants: [...state.plants, action.plant]
             }
         case 'REMOVE_PLANT':
             return {
                 ...state,
-                plants:state.plants.filter (plant=> plant._id !== action.plandId)
+                plants: state.plants.filter(plant => plant._id !== action.plandId)
             }
         case 'UPDATE_PLANT':
             return {
                 ...state,
-                plants: state.plants.map(plant =>plant._id === action.plant._id ? action.plant : plant)
+                plants: state.plants.map(plant => plant._id === action.plant._id ? action.plant : plant)
             }
         case 'SET_FILTER_BY':
             return {
                 ...state,
-                filterBy: {...action.filterBy}
+                filterBy: { ...action.filterBy }
             }
         default:
             return state;

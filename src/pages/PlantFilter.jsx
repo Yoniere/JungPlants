@@ -5,7 +5,7 @@ export class PlantFilter extends Component {
     filterClicked: false,
     name: "",
     price: "",
-    type: "",
+    type: "Indoor",
     family: "",
   };
 
@@ -58,9 +58,9 @@ export class PlantFilter extends Component {
               value={type}
               onChange={this.handleChange}
             >
-              <option value="" disabled>
+              {/* <option value="" disabled>
                 Choose a Type
-              </option>
+              </option> */}
               <option value="Indoor">Indoor</option>
               <option value="Outdoor">Outdoor</option>
             </select>

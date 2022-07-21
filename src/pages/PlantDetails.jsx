@@ -9,6 +9,7 @@ export class PlantDetails extends Component {
 
   async componentDidMount() {
     const plant = await plantService.getById(this.props.match.params.id);
+    console.log(this.props.match.params.id)
     this.setState({ plant });
   }
 

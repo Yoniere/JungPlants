@@ -1,13 +1,16 @@
+import { connect } from "react-redux";
 import React, { Component } from "react";
 import { plantService } from "../services/plantService";
+import {
+  addPlant
+} from "../store/actions/plantActions";
 
-export class PlantEdit extends Component {
+export class _PlantEdit extends Component {
   state = {
     plant: null,
   };
 
   async componentDidMount() {
-    console.log(this.props);
     const id = this.props.match.params.id;
     const plant = id
       ? await plantService.getById(id)
@@ -27,7 +30,8 @@ export class PlantEdit extends Component {
 
   onSavePlant = async (ev) => {
     ev.preventDefault();
-    await plantService.save({ ...this.state.plant });
+    this.props.addPlant(this.state.plant);
+    // await plantService.save({ ...this.state.plant });
     this.props.history.push("/plant");
   };
 
@@ -90,3 +94,16 @@ export class PlantEdit extends Component {
     );
   }
 }
+
+
+const mapStateToProps = state => {
+  return {
+    plants: state.plantModule.plants,
+  };
+};
+
+const mapDispatchToProps = {
+  addPlant
+};
+
+export const PlantEdit = connect(mapStateToProps, mapDispatchToProps)(_PlantEdit);
