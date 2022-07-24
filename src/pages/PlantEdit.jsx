@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 import { plantService } from "../services/plantService";
 import {
-  addPlant
+  addPlant,loadPlants
 } from "../store/actions/plantActions";
 
 export class _PlantEdit extends Component {
@@ -33,6 +33,7 @@ export class _PlantEdit extends Component {
     this.props.addPlant(this.state.plant);
     // await plantService.save({ ...this.state.plant });
     this.props.history.push("/plant");
+    this.props.loadPlants();
   };
 
   render() {
@@ -103,7 +104,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  addPlant
+  addPlant,
+  loadPlants
 };
 
 export const PlantEdit = connect(mapStateToProps, mapDispatchToProps)(_PlantEdit);

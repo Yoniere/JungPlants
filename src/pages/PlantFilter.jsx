@@ -24,7 +24,7 @@ export class PlantFilter extends Component {
   }
 
   render() {
-    const { name, price, type, family,filterClicked } = this.state;
+    const { name, price, type, family,filterClicked } = this.props;
     if (!filterClicked) return <img onClick={()=>this.toggleFilter(!filterClicked)} src='https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657709534/JungPlants%20Project/icons8-filter-mail-50_imha0s.png'></img>
     return (
       
