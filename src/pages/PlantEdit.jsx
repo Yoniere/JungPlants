@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import { plantService } from "../services/plantService";
-import {
-  addPlant,loadPlants
-} from "../store/actions/plantActions";
+import { addPlant, loadPlants } from "../store/actions/plantActions";
 
 export class _PlantEdit extends Component {
   state = {
@@ -30,10 +28,10 @@ export class _PlantEdit extends Component {
 
   onSavePlant = async (ev) => {
     ev.preventDefault();
-    this.props.addPlant(this.state.plant);
+    this.props.addPlant({ ...this.state.plant });
     // await plantService.save({ ...this.state.plant });
     this.props.history.push("/plant");
-    this.props.loadPlants();
+    // this.props.loadPlants();
   };
 
   render() {
@@ -41,7 +39,7 @@ export class _PlantEdit extends Component {
     if (!plant) return <div>Loading...</div>;
     return (
       <section className="container">
-        <h2>{(plant._id)? 'Edit' : 'Add'} Plant</h2>
+        <h2>{plant._id ? "Edit" : "Add"} Plant</h2>
         <form onSubmit={this.onSavePlant}>
           <label htmlFor="name">Name</label>
           <input
@@ -96,8 +94,7 @@ export class _PlantEdit extends Component {
   }
 }
 
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     plants: state.plantModule.plants,
   };
@@ -105,7 +102,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   addPlant,
-  loadPlants
+  loadPlants,
 };
 
-export const PlantEdit = connect(mapStateToProps, mapDispatchToProps)(_PlantEdit);
+export const PlantEdit = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_PlantEdit);
