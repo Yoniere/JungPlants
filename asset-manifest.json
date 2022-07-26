@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/JungPlants/static/css/main.6a1f2d9e.css",
-    "main.js": "/JungPlants/static/js/main.f2aa67b2.js",
+    "main.css": "/JungPlants/static/css/main.65dde7dc.css",
+    "main.js": "/JungPlants/static/js/main.51619092.js",
     "static/js/787.8ae4576e.chunk.js": "/JungPlants/static/js/787.8ae4576e.chunk.js",
     "index.html": "/JungPlants/index.html",
-    "main.6a1f2d9e.css.map": "/JungPlants/static/css/main.6a1f2d9e.css.map",
-    "main.f2aa67b2.js.map": "/JungPlants/static/js/main.f2aa67b2.js.map",
+    "main.65dde7dc.css.map": "/JungPlants/static/css/main.65dde7dc.css.map",
+    "main.51619092.js.map": "/JungPlants/static/js/main.51619092.js.map",
     "787.8ae4576e.chunk.js.map": "/JungPlants/static/js/787.8ae4576e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a1f2d9e.css",
-    "static/js/main.f2aa67b2.js"
+    "static/css/main.65dde7dc.css",
+    "static/js/main.51619092.js"
   ]
 }
