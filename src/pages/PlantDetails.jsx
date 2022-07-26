@@ -23,7 +23,7 @@ export class PlantDetails extends Component {
     this.props.history.push("/plant");
   };
   render() {
-    const { plant } = this.props;
+    const { plant } = this.state;
     if (!plant) return <div>Loading...</div>;
     return (
       <section className="app-details container flex column">

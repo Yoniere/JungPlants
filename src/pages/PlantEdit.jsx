@@ -30,8 +30,8 @@ export class _PlantEdit extends Component {
     ev.preventDefault();
     this.props.addPlant({ ...this.state.plant });
     // await plantService.save({ ...this.state.plant });
+    this.props.loadPlants();
     this.props.history.push("/plant");
-    // this.props.loadPlants();
   };
 
   render() {
