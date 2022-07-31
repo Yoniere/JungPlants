@@ -3,10 +3,10 @@ import { Component } from "react";
 export class PlantFilter extends Component {
   state = {
     filterClicked: false,
-    name: "",
-    price: "",
-    type: "Indoor",
-    family: "",
+    // name: "",
+    // price: "",
+    // type: "Indoor",
+    // family: "",
   };
 
   handleChange = ({ target }) => {
@@ -24,7 +24,8 @@ export class PlantFilter extends Component {
   }
 
   render() {
-    const { name, price, type, family,filterClicked } = this.props;
+    const { name, price, type, family } = this.props;
+    const { filterClicked } = this.state
     if (!filterClicked) return <img onClick={()=>this.toggleFilter(!filterClicked)} src='https://res.cloudinary.com/ddhuvtrpp/image/upload/v1657709534/JungPlants%20Project/icons8-filter-mail-50_imha0s.png'></img>
     return (
       
